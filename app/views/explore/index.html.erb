@@ -1,5 +1,7 @@
 <%= render 'layouts/upme_nav' %>
+
 <div class="explore-bg"></div>
+
 <div class="container">
   <div class="row">
     <div class="col m7">
@@ -27,32 +29,32 @@
       <div class="row">
         <% projects_found = 0; %>
         <% current_user.available_projects.each do |project| %>
-            <% find = false %>
-            <% project.project_area_de_interesse.each do |p| %>
-                <% find = true if @selected_areas.include? p.area_de_interesse.name %>
-            <% end %>
-            <% if find == true %>
-                <% projects_found += 1 %>
-                <%= render partial: 'projects/project_box', locals: { project: project } %>
-            <% end %>
+          <% find = true %>
+          <%# project.project_area_de_interesse.each do |p| %>
+            <%# find = true if @selected_areas.include? p.area_de_interesse.name %>
+          <%# end %>
+
+          <% if find == true %>
+            <% projects_found += 1 %>
+            <%= render partial: 'projects/project_box', locals: { project: project } %>
+          <% end %>
         <% end %>
+
         <% if projects_found == 0 %>
-            <div class="upme-sub-title">Nenhum projeto foi encontrado.</div>
+          <div class="upme-sub-title">Nenhum projeto foi encontrado.</div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
 <script>
-
-    $(document).ready(function() {
-        $("#e1").select2({
-            tags: true,
-            multiple: true
-        });
-    });
-
-
-
+  $(document).ready(function() {
+      $("#e1").select2({
+          tags: true,
+          multiple: true
+      });
+  });
 </script>
+
 <%= render 'layouts/upme_footer' %>

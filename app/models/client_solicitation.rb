@@ -51,8 +51,8 @@ class ClientSolicitation < ApplicationRecord
   end
 
   def only_empresa
-    unless user.empresa?
-      errors.add(:not_empresa, 'Apenas empresas podem pode participar de um projeto de aluno ou professor')
+    if (project.user.aluno? || project.user.professor?) && !user.empresa?
+      errors.add(:not_empresa, 'Apenas empresas podem participar de um projeto de aluno ou professor')
     end
   end
 
