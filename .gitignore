@@ -24,4 +24,5 @@
 
 .ruby-gemset
 .ruby-version
+.rvmrc
 *.swp

@@ -199,6 +199,7 @@ class ProjectsController < ApplicationController
     else
       flash[:danger] = 'Erro!'
     end
+
     redirect_to public_project_path(@project.id)
   end
 

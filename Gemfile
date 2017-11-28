@@ -35,7 +35,9 @@ gem 'draper'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-
+  gem 'rubocop'
+  gem 'reek'
+  gem 'brakeman'
 end
 
 group :development do
